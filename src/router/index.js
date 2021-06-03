@@ -8,6 +8,34 @@ const routes = [
     component: Home
   },
   {
+    path: '/photo',
+    name: 'Photography',
+    component: function() {
+      return import('../views/Photography.vue')
+    }
+  },
+  {
+    path: '/games',
+    name: 'Game Design',
+    component: function() {
+      return import('../views/GameDes.vue')
+    }
+  },
+  {
+    path: '/art',
+    name: 'Art',
+    component: function() {
+      return import('../views/Art.vue')
+    }
+  },
+  {
+    path: '/music',
+    name: 'Music',
+    component: function() {
+      return import('../views/Music.vue')
+    }
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
