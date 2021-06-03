@@ -1,36 +1,58 @@
 <template>
-  <h1 class="page-header__title">Kendall Eng</h1>
-  <h2 class="page-header__subtitle">Creative</h2>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/photo">Photography</router-link> |
-    <router-link to="/games">Game Design</router-link> |
-    <router-link to="/art">Art</router-link> |
-    <router-link to="/music">Music</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="Main">
+    <PageHeader />
+    <router-view />
+    <footer class="Main__footer">
+      <p>Originally created for UW Certificate in Front-End Web Development. Updated often.</p>
+    </footer>
   </div>
-  <router-view/>
 </template>
 
+<script>
+  // Import components
+  import PageHeader from './components/PageHeader.vue';
+
+  export default {
+    name: 'Main',
+    components: { PageHeader }
+  }
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  // Import Roboto and Courgette fonts
+  @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Courgette&family=Roboto&display=swap');
 
-#nav {
-  // padding: 30px;
+  // Colors
+  $white: #FFFFFF;
+  $red: #F1352B;
+  $purple: #6E27C5;
+  $gray: #c2c2c2;
+  $darkergray: #8a8a8a;
+  $darkgray: #404040;
+  $black: #000000;
+  $darkred: #8c0d0d;
+  $robins: #01c1d6;
+  $blue: #150f96;
+  $lightblue: #69a7ff;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  #app {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: $white;
+    background-color: $black;
+  }
 
-    &.router-link-exact-active {
-      color: #42b983;
+  #nav {
+    margin: 1rem;
+    a {
+      font-weight: bold;
+      color: $purple;
+
+      &.router-link-exact-active {
+        color: $lightblue;
+      }
     }
   }
-}
 </style>
