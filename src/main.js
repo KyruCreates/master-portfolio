@@ -1,7 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-// MDB VUE UI from https://mdbootstrap.com/
-import * as mdb from 'mdb-ui-kit';
+// Import bootstrap
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 createApp(App).use(router).mount('#app');

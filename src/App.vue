@@ -18,8 +18,6 @@
 </script>
 
 <style lang="scss">
-  // Import MDB stylesheet
-  @import '~mdb-ui-kit/css/mdb.min.css';
   // Import partials
   @import './styles/_settings.responsive';
   @import './styles/_settings.variables';

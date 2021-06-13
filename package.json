@@ -8,8 +8,6 @@
   },
   "dependencies": {
     "mdb-ui-kit": "^3.6.0",
-    "mdb-vue-ui-kit": "^1.0.0-beta6",
-    "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
