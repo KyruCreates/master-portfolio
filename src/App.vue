@@ -1,3 +1,5 @@
+<!-- Elements that exist across all the pages of the site (like Header/Footer) -->
+
 <template>
   <div class="Main">
     <PageHeader />

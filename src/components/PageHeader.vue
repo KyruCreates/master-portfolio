@@ -6,29 +6,30 @@
     <!-- Navbar -->
     <nav class="Main__header__menu navbar navbar-expand-lg navbar-dark" id="nav">
       <div class="container-fluid">
-        <a class="navbar-brand"></a>
-        <!-- Toggle button -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navToggle" aria-controls="navToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Collapsable wrapper -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active"><router-link to="/">Home</router-link></a>
-            <a class="nav-link"><router-link to="/photo">Photography</router-link></a>
-            <a class="nav-link"><router-link to="/games">Game Design</router-link></a>
-            <a class="nav-link"><router-link to="/art">Art</router-link></a>
-            <a class="nav-link"><router-link to="/music">Music</router-link></a>
-            <a class="nav-link"><router-link to="/about">About</router-link></a>
-          </div>
+        <div class="collapse navbar-collapse" id="navToggle">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active"><router-link to="/">Home</router-link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><router-link to="/photo">Photography</router-link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><router-link to="/games">Game Design</router-link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><router-link to="/art">Art</router-link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><router-link to="/music">Music</router-link></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><router-link to="/about">About</router-link></a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -69,6 +70,7 @@
         font-weight: bold;
         color: $purple;
         padding: 1rem;
+        text-decoration: none;
 
         &.router-link-exact-active {
           color: $gray;
@@ -79,14 +81,6 @@
       a:hover {
         color: $lightblue;
       }
-    }
-    .container-fluid button i {
-      padding: 5px;
-      border-radius: 2px;
-      background-color: $blue;
-    }
-    .container-fluid button i:hover {
-      background-color: $purple;
     }
   }
   // responsive sizing for "screen and (min-width: 768px)"
@@ -117,6 +111,7 @@
         font-weight: bold;
         color: $purple;
         padding: 1rem;
+        text-decoration: none;
 
         &.router-link-exact-active {
           color: $gray;
@@ -127,14 +122,6 @@
       a:hover {
         color: $lightblue;
       }
-    }
-    .container-fluid button i {
-      padding: 5px;
-      border-radius: 2px;
-      background-color: $blue;
-    }
-    .container-fluid button i:hover {
-      background-color: $purple;
     }
   }
   // responsive sizing for "screen and (min-width: 920px)"

@@ -1,5 +1,11 @@
+<!--
+TO DO:
+  1. Make Vue syntax work - not 100% working, need to replace the Vue.createApp from <script>
+    1a. Check the commission info toggle
+  2. Fix Grid layout
+-->
+
 <template>
-  <!-- Rough layout for Art page -->
   <main class="Main" id="app">
     <!-- Main page content -->
     <article class="Main__content content">
@@ -76,3 +82,150 @@
   }
   // Vue.createApp(CommInfo).mount('#app');
 </script>
+
+<style lang="scss">
+  // Import partials
+  @import '../styles/_settings.responsive';
+  @import '../styles/_settings.variables';
+  @import '../styles/_base.normalize';
+  // Import Roboto and Courgette fonts
+  @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Courgette&family=Roboto&display=swap');
+
+  // responsive sizing for "screen and (max-width: 767px)"
+  @include media-query('mobile') {
+    .Main {
+      font-family: 'Roboto', sans-serif;
+      display: block;
+      background-color: $black;
+      color: $gray;
+      // Page styling
+      &__content {
+        margin: 0 1rem;
+        padding-right: 1rem;
+        &__title {
+          font-family: 'Courgette', cursive;
+          color: $lightblue;
+        }
+        &__imgs {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-around;
+          &__examples {
+            margin-bottom: 1rem;
+            padding: 0;
+          }
+        }
+      }
+      // Sidebar styling
+      &__sidebar {
+        margin: 0 1rem;
+        padding: 0 1rem;
+        border-top: 1px solid $blue;
+        &__title {
+          font-family: 'Courgette', cursive;
+          text-align: center;
+          color: $lightblue;
+        }
+        &__status {
+          text-align: center;
+          font-weight: bold;
+        }
+        &__info {
+          margin-top: 2rem;
+          padding: 0;
+          list-style-type: circle;
+          &__price {
+            padding-bottom: 1rem;
+          }
+        }
+        &__button {
+          color: $lightblue;
+          background-color: $darkgray;
+          border-radius: 5px;
+          border-style: none;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+  // responsive sizing for "screen and (min-width: 768px)"
+  @include media-query('tab') {
+    .Main {
+      font-family: 'Roboto', sans-serif;
+      display: grid;
+      grid-template-areas:
+        "sidebar sidebar sidebar content content content content";
+      background-color: $black;
+      color: $gray;
+      // Page styling
+      &__content {
+        margin: 0 1rem;
+        padding-right: 1rem;
+        &__title {
+          font-family: 'Courgette', cursive;
+          color: $lightblue;
+        }
+        &__imgs {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+          &__examples {
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            padding: 0;
+          }
+        }
+      }
+      // Sidebar styling
+      &__sidebar {
+        margin: 0 1rem;
+        padding: 0 1rem;
+        border-right: 1px solid $blue;
+        &__title {
+          font-family: 'Courgette', cursive;
+          text-align: center;
+          color: $lightblue;
+        }
+        &__status {
+          text-align: center;
+          font-weight: bold;
+        }
+        &__info {
+          margin-top: 2rem;
+          padding: 0;
+          list-style-type: circle;
+          &__price {
+            padding-bottom: 1rem;
+          }
+        }
+        &__button {
+          color: $darkergray;
+          background-image: linear-gradient($darkgray, $black);
+          border: 2px solid $black;
+          border-radius: 5px;
+          padding: 0.5rem;
+          text-shadow: 0 0 5px $blue;
+        }
+        &__button:hover {
+          border: 2px solid $blue;
+          background-image: linear-gradient($blue, $black);
+          color: $darkergray;
+        }
+      }
+      .content {
+        grid-area: content;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+    }
+  }
+  // responsive sizing for "screen and (min-width: 920px)"
+  @include media-query('lg') {
+
+  }
+  // responsive sizing for "screen and (min-width: 1024px)"
+  @include media-query('desk') {
+
+  }
+</style>
