@@ -1,4 +1,4 @@
-<!-- Page Header format -->
+<!-- Page Header -->
 <template>
   <header class="Main__header">
     <h1 class="Main__header__title">Kendall Eng</h1>
@@ -62,7 +62,6 @@
         padding-bottom: 1rem;
       }
     }
-
     // Menu styling
     #nav {
       padding: 1rem;

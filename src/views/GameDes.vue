@@ -4,7 +4,7 @@ TO DO:
 -->
 
 <template>
-  <div class="games">
+  <div class="Main games">
     <h2>Game Design</h2>
     <p>Placeholder: This is where all my student showcase projects will reside from my undergrad days (and the few industry projects I've previously worked on).</p>
     <p>Potentially adding subpages to this (after the program ends).</p>

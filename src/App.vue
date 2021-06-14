@@ -1,11 +1,11 @@
 <!-- Elements that exist across all the pages of the site (like Header/Footer) -->
 
 <template>
-  <div class="Main">
+  <main class="Main">
     <PageHeader />
     <router-view />
     <PageFooter />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -38,6 +38,7 @@
       color: $gray;
       background-color: $black;
       margin: 2rem;
+      display: block;
     }
   }
 
@@ -52,6 +53,7 @@
       color: $gray;
       background-color: $black;
       padding: 2rem;
+      display: block;
     }
   }
 

@@ -1,11 +1,17 @@
 <template>
-  <div class="home Main">
+  <main class="home Main">
     <h2 class="Main__title">Welcome!</h2>
     <p class="Main__p1">Feel free to look around!</p>
-    <p class="Main__p2">There's much to explore - from <a><router-link to="/photo">Photography</router-link></a> to <a><router-link to="/games">Game Design</router-link></a> to <a><router-link to="/music">Music</router-link></a> and <a><router-link to="/art">Art</router-link></a>!</p>
-    <p class="Main__p3">Kick back and relax, and if you'd like to know more about me, head on over to <a><router-link to="/about">About</router-link></a>.</p>
-  </div>
+    <p class="Main__p2">There's much to explore - from <a class="Main__link link-info"><router-link to="/photo">Photography</router-link></a> to <a class="Main__link link-info"><router-link to="/games">Game Design</router-link></a> to <a class="Main__link link-info"><router-link to="/music">Music</router-link></a> and <a class="Main__link link-info"><router-link to="/art">Art</router-link></a>!</p>
+    <p class="Main__p3">Kick back and relax, and if you'd like to know more about me, head on over to <a class="Main__link link-info"><router-link to="/about">About</router-link></a>.</p>
+  </main>
 </template>
+
+<script type="text/javascript">
+  export default {
+    name: 'Home'
+  }
+</script>
 
 <style lang="scss">
   // Import partials
@@ -18,6 +24,7 @@
       &__title {
         font-family: 'Courgette', cursive;
         padding-bottom: 1rem;
+        color: $lightblue;
       }
     }
   }
@@ -28,6 +35,7 @@
       &__title {
         font-family: 'Courgette', cursive;
         padding-bottom: 1rem;
+        color: $lightblue;
       }
     }
   }

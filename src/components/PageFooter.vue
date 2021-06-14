@@ -1,3 +1,4 @@
+<!-- Page footer -->
 <template>
   <footer class="Main__footer">
     <p>Originally created for UW Certificate in Front-End Web Development.</p>
@@ -16,6 +17,7 @@
       padding-top: 2rem;
       padding-bottom: 1rem;
       font-style: italic;
+      color: $purple;
       p {
         margin-bottom: 0;
       }
@@ -27,6 +29,7 @@
       padding-top: 2rem;
       padding-bottom: 1rem;
       font-style: italic;
+      color: $purple;
       p {
         margin-bottom: 0;
       }

@@ -1,12 +1,12 @@
 <!--
 TO DO:
-  1. Make Vue syntax work - not 100% working, need to replace the Vue.createApp from <script>
+  1. Make Vue syntax work - not 100% working, "[Vue warn] Component is missing template or render function"
     1a. Check the commission info toggle
-  2. Fix Grid layout
+  2. Fix Grid layout - different layouts for each page?
 -->
 
 <template>
-  <main class="Main" id="app">
+  <main class="art Main" id="app">
     <!-- Main page content -->
     <article class="Main__content content">
       <h2 class="Main__content__title">Art</h2>
@@ -41,6 +41,9 @@ TO DO:
 </template>
 
 <script type="text/javascript">
+  export default {
+    name: 'Art'
+  };
   // Commission info data
   const CommInfo = {
     data() {
@@ -72,6 +75,7 @@ TO DO:
     methods: {
       // Toggles whether the commission price list is showing
       priceToggle() {
+        console.log(this.priceShowing);
         if(this.priceShowing === false) {
           this.priceShowing = true;
         } else {
@@ -80,7 +84,7 @@ TO DO:
       }
     }
   }
-  // Vue.createApp(CommInfo).mount('#app');
+  Vue.createApp(CommInfo).mount('#app');
 </script>
 
 <style lang="scss">
@@ -153,8 +157,6 @@ TO DO:
     .Main {
       font-family: 'Roboto', sans-serif;
       display: grid;
-      grid-template-areas:
-        "sidebar sidebar sidebar content content content content";
       background-color: $black;
       color: $gray;
       // Page styling
@@ -211,12 +213,6 @@ TO DO:
           background-image: linear-gradient($blue, $black);
           color: $darkergray;
         }
-      }
-      .content {
-        grid-area: content;
-      }
-      .sidebar {
-        grid-area: sidebar;
       }
     }
   }

@@ -5,8 +5,8 @@ TO DO:
 -->
 
 <template>
-  <div class="about">
+  <main class="Main about">
     <h2>About</h2>
     <p>Placeholder: This is where you will find information about me and how to contact me (via form).</p>
-  </div>
+  </main>
 </template>
