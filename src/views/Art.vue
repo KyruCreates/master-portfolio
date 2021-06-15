@@ -1,12 +1,10 @@
-<!--
+<!-- Art page
 TO DO:
-  1. Make Vue syntax work - not 100% working, "[Vue warn] Component is missing template or render function"
-    1a. Check the commission info toggle
-  2. Fix Grid layout - different layouts for each page?
+  2. Fix Grid layout
 -->
 
 <template>
-  <main class="art Main" id="app">
+  <main class="Main art" id="app">
     <!-- Main page content -->
     <article class="Main__content content">
       <h2 class="Main__content__title">Art</h2>
@@ -19,19 +17,19 @@ TO DO:
     <!-- Sidebar - commission info and status -->
     <aside class="Main__sidebar sidebar">
       <h3 class="Main__sidebar__title">Commissions</h3>
-      <!-- If {{open}} is false, commission status is closed -->
+      <!-- If {{ open }} is false, commission status is closed -->
       <p class="Main__sidebar__status" v-if="open === false">Status: Closed</p>
       <!-- Else commision status is open -->
       <p class="Main__sidebar__status" v-else>Status: Open</p>
       <!-- Commission info -->
       <ul class="Main__sidebar__info" v-if="priceShowing === true">
-        <li class="Main__sidebar__info__price">${{emote}} USD per emote/badge</li>
-        <li class="Main__sidebar__info__price">${{avatar}} USD per avatar/icon</li>
-        <li class="Main__sidebar__info__price">${{panelmin}} - ${{panelmax}} USD per panel (depending on how detailed)</li>
-        <li class="Main__sidebar__info__price">${{half}} USD per half-body</li>
-        <li class="Main__sidebar__info__price">${{full}} USD per full body</li>
-        <li class="Main__sidebar__info__price">+${{bgaddon}} USD per specific background</li>
-        <li class="Main__sidebar__info__price">+${{charaddonmin}} - ${{charaddonmax}} USD per additional character (up to 3 characters per piece, price depends on how detailed)</li>
+        <li class="Main__sidebar__info__price">${{ emote }} USD per emote/badge</li>
+        <li class="Main__sidebar__info__price">${{ avatar }} USD per avatar/icon</li>
+        <li class="Main__sidebar__info__price">${{ panelmin }} - ${{ panelmax }} USD per panel (depending on how detailed)</li>
+        <li class="Main__sidebar__info__price">${{ half }} USD per half-body</li>
+        <li class="Main__sidebar__info__price">${{ full }} USD per full body</li>
+        <li class="Main__sidebar__info__price">+${{ bgaddon }} USD per specific background</li>
+        <li class="Main__sidebar__info__price">+${{ charaddonmin}} - ${{ charaddonmax }} USD per additional character (up to 3 characters per piece, price depends on how detailed)</li>
       </ul>
       <!-- Button to toggle the commission prices -->
       <button class="Main__sidebar__button" type="button" name="button" v-on:click="priceToggle" v-if="priceShowing === true">Hide Prices</button>
@@ -42,10 +40,7 @@ TO DO:
 
 <script type="text/javascript">
   export default {
-    name: 'Art'
-  };
-  // Commission info data
-  const CommInfo = {
+    name: 'Art',
     data() {
       return {
         // Commission status
@@ -75,19 +70,13 @@ TO DO:
     methods: {
       // Toggles whether the commission price list is showing
       priceToggle() {
-        console.log(this.priceShowing);
-        if(this.priceShowing === false) {
-          this.priceShowing = true;
-        } else {
-          this.priceShowing = false;
-        }
+        this.priceShowing = !this.priceShowing;
       }
     }
   }
-  Vue.createApp(CommInfo).mount('#app');
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   // Import partials
   @import '../styles/_settings.responsive';
   @import '../styles/_settings.variables';
@@ -99,13 +88,13 @@ TO DO:
   @include media-query('mobile') {
     .Main {
       font-family: 'Roboto', sans-serif;
-      display: block;
       background-color: $black;
       color: $gray;
       // Page styling
       &__content {
         margin: 0 1rem;
         padding-right: 1rem;
+        text-align: left;
         &__title {
           font-family: 'Courgette', cursive;
           color: $lightblue;
@@ -149,6 +138,11 @@ TO DO:
           border-style: none;
           padding: 0.5rem;
         }
+        &__button:hover {
+          border: 2px solid $blue;
+          background-image: linear-gradient($blue, $black);
+          color: $darkergray;
+        }
       }
     }
   }
@@ -161,8 +155,8 @@ TO DO:
       color: $gray;
       // Page styling
       &__content {
-        margin: 0 1rem;
         padding-right: 1rem;
+        text-align: left;
         &__title {
           font-family: 'Courgette', cursive;
           color: $lightblue;

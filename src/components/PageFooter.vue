@@ -1,8 +1,8 @@
 <!-- Page footer -->
 <template>
   <footer class="Main__footer">
-    <p>Originally created for UW Certificate in Front-End Web Development.</p>
-    <p>Updated often.</p>
+    <p class="Main__footer__origin">Originally created for UW Certificate in Front-End Web Development.</p>
+    <p class="Main__footer__update">Updated often.</p>
   </footer>
 </template>
 
@@ -18,6 +18,7 @@
       padding-bottom: 1rem;
       font-style: italic;
       color: $purple;
+      text-align: center;
       p {
         margin-bottom: 0;
       }
@@ -30,6 +31,7 @@
       padding-bottom: 1rem;
       font-style: italic;
       color: $purple;
+      text-align: center;
       p {
         margin-bottom: 0;
       }

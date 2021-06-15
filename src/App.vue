@@ -34,7 +34,7 @@
       font-family: 'Roboto', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      text-align: center;
+      text-align: left;
       color: $gray;
       background-color: $black;
       margin: 2rem;
@@ -49,7 +49,7 @@
       font-family: 'Roboto', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      text-align: center;
+      text-align: left;
       color: $gray;
       background-color: $black;
       padding: 2rem;

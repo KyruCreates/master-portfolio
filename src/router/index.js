@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+// Import different views for each page
 import Home from '../views/Home.vue';
+import Web from '../views/WebDev.vue';
 import Photo from '../views/Photography.vue';
 import Games from '../views/GameDes.vue';
 import Art from '../views/Art.vue';
@@ -11,6 +13,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/web',
+    name: 'Front-End Web Development',
+    component: Web
   },
   {
     path: '/photo',

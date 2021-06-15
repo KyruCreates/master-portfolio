@@ -1,16 +1,11 @@
-<!--
+<!-- Photography page
 TO DO:
-  1. Add Flickr API to populate the page
-    1a. Handle errors for API request
   2. Assuming the data is a list:
-    2a. Use a v-for loop to display the list elements on the page
-    2b. Build a new component that will be used for each list element
-    2c. That component should accept at least four props and use props validation (required and data type)
-  3. If the data isn't a list:
-    3a. At least 4 pieces of data from the API must be displayed
-    3b. There must be conditional content displayed based on value of some returned data
-
-  BONUS: Create UI interactions to modify/interact with your API data
+    c. That component should accept at least four props and use props validation (required and data type)
+      i. CURRENT PROBLEM: Only displaying the one image's info (not correct photo - looks like pulling info from the last photo)
+  3. Style photos
+    b. Flexbox / Grid to show more than 1 image on bigger screen sizes (gallery view)
+    c. Center the figcaptions & quote text
 -->
 <template>
   <main class="photo Main">
@@ -31,46 +26,63 @@ TO DO:
     </figure>
     <!-- Adding Flickr API to display recent posts -->
     <div class="Main__gallery">
-      {{ list }}
+      <ul class="Main__gallery__list list-unstyled">
+        <!-- Making a list of images using v-for -->
+        <li class="Main__gallery__list__item" v-for="(photo) in list">
+          <figure class="Main__gallery__list__item__figure">
+            <img class="Main__gallery__list__item__figure__image" v-bind:src="photo" />
+            <figcaption class="Main__gallery__list__item__figure__caption">
+              <!-- <h4>{{ title }}</h4> -->
+              <!-- <p>{{ desc }}</p> -->
+              <!-- <p>Taken on: {{ date }}</p> -->
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
     </div>
   </main>
 </template>
 
 <script type="text/javascript">
-  // placehodler json
-  // fetch('https://jsonplaceholder.typicode.com/todos/1')
-  // .then(response => {return response.json()})
-  // .then(json => {console.log(json)})
-  // .catch(() => {console.log('Something went wrong!')});
-
   export default {
     name: 'Photo',
     data() {
       return {
-        list: []
+        // List of photos
+        list: [],
+        // title: String,
+        // desc: String,
+        // date: Date
       }
     },
     mounted() {
-        fetch('https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=17bcaf01e8e45c2d434ccf275e755158&user_id=190433911%40N03&extras=description&format=json&nojsoncallback=1')
-        // Parse the response so javascript can read it
-        .then((response) => {
-          return response.json();
+      // Grab the Flickr API
+      fetch('https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=17bcaf01e8e45c2d434ccf275e755158&user_id=190433911%40N03&extras=description%2C+date_taken&per_page=20&page=1&format=json&nojsoncallback=1')
+      // Parse the response so javascript can read it
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        // For each photo element in json, push the built img src url
+        json.photos.photo.forEach((el, index) => {
+          // this.list.push(`https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}_z.jpg`, `${el.title}`);
+          this.list.push(`https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}.jpg`);
+// Dynamically display the Title, Description, and Date Taken for each photo
+          // this.list.push(`${el.title}`);
+          // this.list.push(`${el.description._content}`);
+          // this.list.push(`${el.datetaken}`);
+// CURRENT PROBLEM: this is only displaying the first image's info
+          // this.title = `${el.title}`;
+          // this.desc = `${el.description._content}`;
+          // this.date = `${el.datetaken}`;
         })
-        .then((json) => {
-          console.log(json);
-          this.list = json;
-
-          // json.forEach(function (el, index) {
-          //   if(index < 100) {
-          //     console.log(el.id);
-          //   }
-          // })
-        })
-        .catch((err) => {
-          console.log('Something went wrong! ', err);
-        })
-      }
+      })
+      // If there's a problem, log it in the console with the message and the error
+      .catch((err) => {
+        console.log('Something went wrong! ', err);
+      })
     }
+  }
 </script>
 
 <style lang="scss">
@@ -85,10 +97,8 @@ TO DO:
         font-family: 'Courgette', cursive;
         padding: 1rem 2rem;
         color: $lightblue;
-        text-align: left;
       }
       &__desc {
-        text-align: left;
         padding: 0 2rem;
       }
       &__quote {
@@ -106,10 +116,8 @@ TO DO:
         font-family: 'Courgette', cursive;
         padding: 1rem 2rem;
         color: $lightblue;
-        text-align: left;
       }
       &__desc {
-        text-align: left;
         padding-left: 2rem;
       }
       &__quote {
