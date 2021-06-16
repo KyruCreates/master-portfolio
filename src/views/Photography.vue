@@ -2,10 +2,7 @@
 TO DO:
   2. Assuming the data is a list:
     c. That component should accept at least four props and use props validation (required and data type)
-      i. CURRENT PROBLEM: Only displaying the one image's info (not correct photo - looks like pulling info from the last photo)
-  3. Style photos
-    b. Flexbox / Grid to show more than 1 image on bigger screen sizes (gallery view)
-    c. Center the figcaptions & quote text
+      i. CURRENT PROBLEM: Broken link displaying instead of title
 -->
 <template>
   <main class="photo Main">
@@ -28,11 +25,11 @@ TO DO:
     <div class="Main__gallery">
       <ul class="Main__gallery__list list-unstyled">
         <!-- Making a list of images using v-for -->
-        <li class="Main__gallery__list__item" v-for="(photo) in list">
+        <li class="Main__gallery__list__item" v-for="photo in list">
           <figure class="Main__gallery__list__item__figure">
-            <img class="Main__gallery__list__item__figure__image" v-bind:src="photo" />
+            <img class="Main__gallery__list__item__figure__image rounded" v-bind:src="photo" />
             <figcaption class="Main__gallery__list__item__figure__caption">
-              <!-- <h4>{{ title }}</h4> -->
+              <!-- <h4>{{ photo.title }}</h4> -->
               <!-- <p>{{ desc }}</p> -->
               <!-- <p>Taken on: {{ date }}</p> -->
             </figcaption>
@@ -40,6 +37,7 @@ TO DO:
         </li>
       </ul>
     </div>
+    <a class="Main__button" href="https://flickr.com/photos/kyru_eng/albums" target="_blank"><button type="button" class="btn btn-primary mt-3">Flickr Portfolio</button></a>
   </main>
 </template>
 
@@ -49,10 +47,7 @@ TO DO:
     data() {
       return {
         // List of photos
-        list: [],
-        // title: String,
-        // desc: String,
-        // date: Date
+        list: []
       }
     },
     mounted() {
@@ -71,10 +66,6 @@ TO DO:
           // this.list.push(`${el.title}`);
           // this.list.push(`${el.description._content}`);
           // this.list.push(`${el.datetaken}`);
-// CURRENT PROBLEM: this is only displaying the first image's info
-          // this.title = `${el.title}`;
-          // this.desc = `${el.description._content}`;
-          // this.date = `${el.datetaken}`;
         })
       })
       // If there's a problem, log it in the console with the message and the error
@@ -102,10 +93,27 @@ TO DO:
         padding: 0 2rem;
       }
       &__quote {
-        border: solid 2px $darkgray;
-        border-radius: 5px;
-        padding-top: 1rem;
-        margin: 1rem 2rem;
+        padding: 1rem;
+        margin: 1rem 20%;
+        text-align: center;
+      }
+      &__gallery {
+        text-align: center;
+        margin: 0 2rem;
+        &__list__item {
+          border: 1px solid $darkgray;
+          border-radius: 5px;
+          margin-bottom: 2rem;
+          padding: 1rem;
+          &__figure__image {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+      &__button button {
+        text-shadow: 0 0 5px $blue;
+        margin-left: 2rem;
       }
     }
   }
@@ -121,10 +129,33 @@ TO DO:
         padding-left: 2rem;
       }
       &__quote {
-        border: solid 2px $darkgray;
-        border-radius: 5px;
-        padding-top: 1rem;
+        padding: 1rem;
         margin: 1rem 20%;
+        text-align: center;
+      }
+      &__gallery {
+        display: flex;
+        text-align: center;
+        margin: 0 2rem;
+        &__list {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-around;
+          &__item {
+            border: 1px solid $darkgray;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            &__figure__image {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+      &__button button {
+        text-shadow: 0 0 5px $blue;
+        margin-left: 2rem;
       }
     }
   }

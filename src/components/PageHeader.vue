@@ -1,4 +1,8 @@
-<!-- Page Header -->
+<!-- Page Header
+TO DO:
+  1. Make the collapsible menu automatically close on click
+    a.  data-bs-toggle="collapse" data-bs-target="#navToggle.show" breaks the link
+-->
 <template>
   <header class="Main__header">
     <h1 class="Main__header__title">Kendall Eng</h1>
@@ -13,8 +17,8 @@
         <div class="Main__header__menu__container__collapse collapse navbar-collapse" id="navToggle">
           <ul class="Main__header__menu__container__collapse__list navbar-nav me-auto mb-2 mb-lg-0">
             <!-- Home page link -->
-            <li class="Main__header__menu__container__collapse__list__element nav-item">
-              <a class="Main__header__menu__container__collapse__list__element__anchor nav-link active"><router-link to="/">Home</router-link></a>
+            <li class="Main__header__menu__container__collapse__list__element nav-item active">
+              <a class="Main__header__menu__container__collapse__list__element__anchor nav-link"><router-link to="/">Home</router-link></a>
             </li>
             <!-- Front-End Web Development page link -->
             <!-- <li class="Main__header__menu__container__collapse__list__element nav-item">
@@ -33,12 +37,12 @@
               <a class="Main__header__menu__container__collapse__list__element__anchor nav-link"><router-link to="/art">Art</router-link></a>
             </li>
             <!-- Music page link -->
-            <li class="Main__header__menu__container__collapse__list__element nav-item">
+            <!-- <li class="Main__header__menu__container__collapse__list__element nav-item">
               <a class="Main__header__menu__container__collapse__list__element__anchor nav-link"><router-link to="/music">Music</router-link></a>
-            </li>
+            </li> -->
             <!-- About/Contact page link -->
             <li class="Main__header__menu__container__collapse__list__element nav-item">
-              <a class="Main__header__menu__container__collapse__list__element__anchor nav-link"><router-link to="/about">About</router-link></a>
+              <a class="Main__header__menu__container__collapse__list__element__anchor nav-link"><router-link to="/contact">Contact</router-link></a>
             </li>
           </ul>
         </div>
@@ -78,7 +82,7 @@
       padding: 1rem;
       a {
         font-weight: bold;
-        color: $purple;
+        color: $darkergray;
         padding: 1rem;
         text-decoration: none;
 
@@ -119,7 +123,7 @@
       padding: 1rem;
       a {
         font-weight: bold;
-        color: $purple;
+        color: $darkergray;
         padding: 1rem;
         text-decoration: none;
         &.router-link-exact-active {

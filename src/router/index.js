@@ -6,7 +6,7 @@ import Photo from '../views/Photography.vue';
 import Games from '../views/GameDes.vue';
 import Art from '../views/Art.vue';
 import Music from '../views/Music.vue';
-import About from '../views/About.vue';
+import Contact from '../views/Contact.vue';
 
 const routes = [
   {
@@ -40,9 +40,9 @@ const routes = [
     component: Music
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
   }
 ];
 

@@ -14,8 +14,8 @@
   // responsive sizing for "screen and (max-width: 767px)"
   @include media-query('mobile') {
     .Main__footer {
-      padding-top: 2rem;
-      padding-bottom: 1rem;
+      padding: 2rem 0;
+      margin: 2rem;
       font-style: italic;
       color: $purple;
       text-align: center;
@@ -27,8 +27,8 @@
   // responsive sizing for "screen and (min-width: 768px)"
   @include media-query('tab') {
     .Main__footer {
-      padding-top: 2rem;
-      padding-bottom: 1rem;
+      padding: 2rem 0;
+      margin: 2rem;
       font-style: italic;
       color: $purple;
       text-align: center;

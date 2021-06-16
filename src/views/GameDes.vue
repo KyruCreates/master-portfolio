@@ -14,7 +14,7 @@ TO DO (after cert):
     <p class="Main__pgdesc">I had a "eureka!" moment with Game Design while I was looking at a dual major in Fine Arts and Technology. It joins the creative outlets of writing, programming, art, and music which is exactly what I was looking for. I graduated in 2017 from DigiPen Institute of Technology with a Bachelor of Arts in Game Design.</p>
     <p class="Main__pgdesc">I enjoy trying new ideas while crafting unique games and refining my skills as a game designer. I love exploring different game spaces and genres to understand how they captivate their audiences. My favorite part of game design is watching something I made with my own hands come to life.</p>
     <p class="Main__pgdesc">My goal is to create games that explore new worlds and spark the imagination of the players. </p>
-    <a class="Main__button" href="https://kyrueng.wixsite.com/website" target="_blank"><button type="button">Portfolio</button></a>
+    <a class="Main__button" href="https://kyrueng.wixsite.com/website" target="_blank"><button type="button" class="btn btn-primary mt-3">Wix Portfolio</button></a>
   </main>
 </template>
 
@@ -41,18 +41,8 @@ TO DO (after cert):
         padding: 0 2rem;
       }
       &__button button {
-        color: $darkergray;
-        background-image: linear-gradient($darkgray, $black);
-        border: 2px solid $black;
-        border-radius: 5px;
-        padding: 0.5rem;
         text-shadow: 0 0 5px $blue;
         margin-left: 2rem;
-      }
-      &__button:hover button:hover {
-        border: 2px solid $blue;
-        background-image: linear-gradient($blue, $black);
-        color: $darkergray;
       }
     }
   }
@@ -68,18 +58,8 @@ TO DO (after cert):
         padding-left: 2rem;
       }
       &__button button {
-        color: $darkergray;
-        background-image: linear-gradient($darkgray, $black);
-        border: 2px solid $black;
-        border-radius: 5px;
-        padding: 0.5rem;
         text-shadow: 0 0 5px $blue;
         margin-left: 2rem;
-      }
-      &__button:hover button:hover {
-        border: 2px solid $blue;
-        background-image: linear-gradient($blue, $black);
-        color: $darkergray;
       }
     }
   }

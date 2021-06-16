@@ -53,7 +53,6 @@
       color: $gray;
       background-color: $black;
       padding: 2rem;
-      display: block;
     }
   }
 

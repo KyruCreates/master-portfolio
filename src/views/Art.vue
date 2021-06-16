@@ -1,17 +1,17 @@
 <!-- Art page
 TO DO:
-  2. Fix Grid layout
+  3. Replace placeholder imgs with real artwork
 -->
 
 <template>
-  <main class="Main art" id="app">
+  <main class="art Main" id="app">
     <!-- Main page content -->
     <article class="Main__content content">
       <h2 class="Main__content__title">Art</h2>
-      <p class="Main__content__pgdesc">In my spare time, I draw. I've mostly moved to digital art, though every now and then I go back to traditional paper and pencil or paper and paint. I enjoy seeing the different textures and trying new techniques.</p>
+      <p class="Main__content__pgdesc">I enjoy creating characters and learning new techniques and poses. My specialty lies in animals, but I am working on expanding that to human and human-like creatures. I predominantly draw in a digital medium using an iPad and Apple Pencil, though I originally started digital art with an Intuos 5 pen tablet. Every now and then, I go back to traditional paper and pencil or paint.</p>
       <div class="Main__content__imgs">
         <!-- v-for loop that loops through the array imageSrc to pull image sources -->
-        <img class="Main__content__imgs__examples" v-for="index in imageSrc" v-bind:src="index" alt="placeholder images" />
+        <img class="Main__content__imgs__examples rounded" v-for="index in imageSrc" v-bind:src="index" alt="Examples of art I've done" />
       </div>
     </article>
     <!-- Sidebar - commission info and status -->
@@ -21,6 +21,9 @@ TO DO:
       <p class="Main__sidebar__status" v-if="open === false">Status: Closed</p>
       <!-- Else commision status is open -->
       <p class="Main__sidebar__status" v-else>Status: Open</p>
+      <!-- Button to toggle the commission prices -->
+      <button class="Main__sidebar__button btn btn-primary mt-3" type="button" name="button" v-on:click="priceToggle" v-if="priceShowing === true">Hide Prices</button>
+      <button class="Main__sidebar__button btn btn-primary mt-3" type="button" name="button" v-on:click="priceToggle" v-else>Show Prices</button>
       <!-- Commission info -->
       <ul class="Main__sidebar__info" v-if="priceShowing === true">
         <li class="Main__sidebar__info__price">${{ emote }} USD per emote/badge</li>
@@ -31,9 +34,6 @@ TO DO:
         <li class="Main__sidebar__info__price">+${{ bgaddon }} USD per specific background</li>
         <li class="Main__sidebar__info__price">+${{ charaddonmin}} - ${{ charaddonmax }} USD per additional character (up to 3 characters per piece, price depends on how detailed)</li>
       </ul>
-      <!-- Button to toggle the commission prices -->
-      <button class="Main__sidebar__button" type="button" name="button" v-on:click="priceToggle" v-if="priceShowing === true">Hide Prices</button>
-      <button class="Main__sidebar__button" type="button" name="button" v-on:click="priceToggle" v-else>Show Prices</button>
     </aside>
   </main>
 </template>
@@ -64,7 +64,7 @@ TO DO:
         // Prices showing
         priceShowing: true,
         // Array of images
-        imageSrc: ['https://picsum.photos/250', 'https://picsum.photos/250?grayscale', 'https://picsum.photos/250', 'https://picsum.photos/250?grayscale', 'https://picsum.photos/250', 'https://picsum.photos/250?grayscale']
+        imageSrc: ['../assets/Emote-2v2.png', '../assets/Profile_Pic.png', '../assets/Mascot_Banner.png', '../assets/HedwigBun.PNG', '../assets/Melon Pup v2_20200708.jpg', '../assets/zeika__flat_color_by_kyruhikari.jpg']
       }
     },
     methods: {
@@ -93,26 +93,28 @@ TO DO:
       // Page styling
       &__content {
         margin: 0 1rem;
-        padding-right: 1rem;
-        text-align: left;
+        padding: 1rem;
         &__title {
           font-family: 'Courgette', cursive;
           color: $lightblue;
         }
+        &__pgdesc {
+          text-align: left;
+        }
         &__imgs {
           display: flex;
           flex-flow: row wrap;
-          justify-content: space-around;
+          justify-content: space-between;
           &__examples {
             margin-bottom: 1rem;
-            padding: 0;
+            padding: 0 1rem;
           }
         }
       }
       // Sidebar styling
       &__sidebar {
         margin: 0 1rem;
-        padding: 0 1rem;
+        padding: 1rem;
         border-top: 1px solid $blue;
         &__title {
           font-family: 'Courgette', cursive;
@@ -123,25 +125,17 @@ TO DO:
           text-align: center;
           font-weight: bold;
         }
+        &__button {
+          text-shadow: 0 0 5px $blue;
+          margin-left: 2rem;
+        }
         &__info {
           margin-top: 2rem;
-          padding: 0;
+          padding: 0 2rem;
           list-style-type: circle;
           &__price {
             padding-bottom: 1rem;
           }
-        }
-        &__button {
-          color: $lightblue;
-          background-color: $darkgray;
-          border-radius: 5px;
-          border-style: none;
-          padding: 0.5rem;
-        }
-        &__button:hover {
-          border: 2px solid $blue;
-          background-image: linear-gradient($blue, $black);
-          color: $darkergray;
         }
       }
     }
@@ -150,19 +144,24 @@ TO DO:
   @include media-query('tab') {
     .Main {
       font-family: 'Roboto', sans-serif;
-      display: grid;
       background-color: $black;
       color: $gray;
+      display: flex;
       // Page styling
       &__content {
-        padding-right: 1rem;
-        text-align: left;
+        margin-right: 1rem;
+        display: inline-flex;
+        flex-flow: column wrap;
+        flex: 65%;
         &__title {
           font-family: 'Courgette', cursive;
           color: $lightblue;
         }
+        &__pgdesc {
+          text-align: left;
+        }
         &__imgs {
-          display: flex;
+          display: inline-flex;
           flex-flow: row wrap;
           justify-content: flex-start;
           &__examples {
@@ -176,7 +175,10 @@ TO DO:
       &__sidebar {
         margin: 0 1rem;
         padding: 0 1rem;
-        border-right: 1px solid $blue;
+        border-left: 1px solid $blue;
+        display: inline-flex;
+        flex-flow: column wrap;
+        flex: 35%;
         &__title {
           font-family: 'Courgette', cursive;
           text-align: center;
@@ -186,26 +188,17 @@ TO DO:
           text-align: center;
           font-weight: bold;
         }
+        &__button {
+          text-shadow: 0 0 5px $blue;
+          margin-left: 2rem;
+        }
         &__info {
           margin-top: 2rem;
-          padding: 0;
+          padding: 0 2rem;
           list-style-type: circle;
           &__price {
             padding-bottom: 1rem;
           }
-        }
-        &__button {
-          color: $darkergray;
-          background-image: linear-gradient($darkgray, $black);
-          border: 2px solid $black;
-          border-radius: 5px;
-          padding: 0.5rem;
-          text-shadow: 0 0 5px $blue;
-        }
-        &__button:hover {
-          border: 2px solid $blue;
-          background-image: linear-gradient($blue, $black);
-          color: $darkergray;
         }
       }
     }

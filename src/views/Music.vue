@@ -1,6 +1,7 @@
 <!-- Music page
 TO DO:
   1. Add SoundCloud API (or make a simple music player with files).
+  2. Styling the player.
 -->
 
 <template>
