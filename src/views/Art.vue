@@ -71,15 +71,15 @@ TO DO:
             alt: 'A waving light blue dragon emote'
           },
           {
-            src: require('../assets/Profile_Pic.png'),
+            src: require('../assets/Profile-Pic.png'),
             alt: 'A light blue dragon on a scaled background profile picture'
           },
           {
-            src: require('../assets/Mascot_Banner.png'),
+            src: require('../assets/Mascot-Banner.png'),
             alt: 'A flying light blue dragon on a scaled background banner'
           },
           {
-            src: require('../assets/HedwigBun.png'),
+            src: require('../assets/Hedwig-Bun.png'),
             alt: 'A sketch of a bunny named Hedwig curled into a ball'
           },
           {
