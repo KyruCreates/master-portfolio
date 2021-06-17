@@ -1,9 +1,4 @@
-<!-- Photography page
-TO DO:
-  2. Assuming the data is a list:
-    c. That component should accept at least four props and use props validation (required and data type)
-      i. CURRENT PROBLEM: Broken link displaying instead of title
--->
+<!-- Photography page -->
 <template>
   <main class="photo Main">
     <!-- Page header -->
@@ -27,11 +22,11 @@ TO DO:
         <!-- Making a list of images using v-for -->
         <li class="Main__gallery__list__item" v-for="photo in list">
           <figure class="Main__gallery__list__item__figure">
-            <img class="Main__gallery__list__item__figure__image rounded" v-bind:src="photo" />
+            <img class="Main__gallery__list__item__figure__image rounded" v-bind="{ src: photo.url, alt: photo.name }" />
             <figcaption class="Main__gallery__list__item__figure__caption">
-              <!-- <h4>{{ photo.title }}</h4> -->
-              <!-- <p>{{ desc }}</p> -->
-              <!-- <p>Taken on: {{ date }}</p> -->
+              <h4 class="Main__gallery__list__item__figure__caption__name">{{ photo.name }}</h4>
+              <p class="Main__gallery__list__item__figure__caption__desc">{{ photo.desc }}</p>
+              <p class="Main__gallery__list__item__figure__caption__date">Taken: {{ photo.date }}</p>
             </figcaption>
           </figure>
         </li>
@@ -58,14 +53,10 @@ TO DO:
         return response.json();
       })
       .then((json) => {
-        // For each photo element in json, push the built img src url
+        // For each photo element in json, push the object information (built img src url, name, description, date taken)
         json.photos.photo.forEach((el, index) => {
-          // this.list.push(`https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}_z.jpg`, `${el.title}`);
-          this.list.push(`https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}.jpg`);
-// Dynamically display the Title, Description, and Date Taken for each photo
-          // this.list.push(`${el.title}`);
-          // this.list.push(`${el.description._content}`);
-          // this.list.push(`${el.datetaken}`);
+          let image = {url: `https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}.jpg`, name: `${el.title}`, desc: `${el.description._content}`, date: `${el.datetaken}`};
+          this.list.push(image);
         })
       })
       // If there's a problem, log it in the console with the message and the error
@@ -108,6 +99,10 @@ TO DO:
           &__figure__image {
             width: 100%;
             height: auto;
+            padding-bottom: 1rem;
+          }
+          &__figure__caption__name {
+            color: $lightblue;
           }
         }
       }
@@ -149,6 +144,10 @@ TO DO:
             &__figure__image {
               width: 100%;
               height: auto;
+              padding-bottom: 1rem;
+            }
+            &__figure__caption__name {
+              color: $lightblue;
             }
           }
         }

@@ -1,7 +1,7 @@
 <!-- Page Header
 TO DO:
   1. Make the collapsible menu automatically close on click
-    a.  data-bs-toggle="collapse" data-bs-target="#navToggle.show" breaks the link
+    a.  data-bs-toggle="collapse" data-bs-target="#navToggle.show" breaks the page link so the page doesn't change on click
 -->
 <template>
   <header class="Main__header">

@@ -1,6 +1,6 @@
 <!-- Art page
 TO DO:
-  3. Replace placeholder imgs with real artwork
+  3. Fix bug where imageSrc[] local path is not loading imgs when it worked with URLs
 -->
 
 <template>
@@ -64,7 +64,9 @@ TO DO:
         // Prices showing
         priceShowing: true,
         // Array of images
-        imageSrc: ['../assets/Emote-2v2.png', '../assets/Profile_Pic.png', '../assets/Mascot_Banner.png', '../assets/HedwigBun.PNG', '../assets/Melon Pup v2_20200708.jpg', '../assets/zeika__flat_color_by_kyruhikari.jpg']
+        imageSrc: ['../assets/Emote-2v2.png', '../assets/Profile_Pic.png', '../assets/Mascot_Banner.png', '../assets/HedwigBun.PNG', '../assets/Melon Pup v2_20200708.jpg', '../assets/zeika__flat_color_by_kyruhikari.jpg'],
+        // Array of image alt text
+        // imageAlt: ['A waving light blue dragon emote', 'A light blue dragon on a scaled background profile picture', 'A flying light blue dragon on a scaled background banner', 'A sketch of a bunny named Hedwig curled into a ball', 'A drawing of a watermelon-themed cartoon dog', 'A drawing of a black fox character']
       }
     },
     methods: {
