@@ -9,6 +9,7 @@ TO DO:
     <article class="Main__content content">
       <h2 class="Main__content__title">Art</h2>
       <p class="Main__content__pgdesc">I enjoy creating characters and learning new techniques and poses. My specialty lies in animals, but I am working on expanding that to human and human-like creatures. I predominantly draw in a digital medium using an iPad and Apple Pencil, though I originally started digital art with an Intuos 5 pen tablet. Every now and then, I go back to traditional paper and pencil or paint.</p>
+      <p class="Main__content__pgdesc">Below are some examples of my work.</p>
       <div class="Main__content__imgs">
         <!-- v-for loop that loops through the array imageSrc to pull image sources -->
         <img class="Main__content__imgs__examples rounded" v-for="index in imageInfo" v-bind="{ src: index.src, alt: index.alt }" />
@@ -78,7 +79,7 @@ TO DO:
             alt: 'A flying light blue dragon on a scaled background banner'
           },
           {
-            src: require('../assets/HedwigBun.PNG'),
+            src: require('../assets/HedwigBun.png'),
             alt: 'A sketch of a bunny named Hedwig curled into a ball'
           },
           {
@@ -86,7 +87,7 @@ TO DO:
             alt: 'A drawing of a watermelon-themed cartoon dog'
           },
           {
-            src: require('../assets/zeika__flat_color_by_kyruhikari.png'),
+            src: require('../assets/zeika-flat-color-by-kyruhikari.png'),
             alt: 'A drawing of a black fox character'
           }
         ]
@@ -129,10 +130,12 @@ TO DO:
         &__imgs {
           display: flex;
           flex-flow: row wrap;
-          justify-content: space-between;
+          justify-content: center;
           &__examples {
             margin-bottom: 1rem;
             padding: 0 1rem;
+            max-width: 70%;
+            height: auto;
           }
         }
       }
@@ -188,11 +191,13 @@ TO DO:
         &__imgs {
           display: inline-flex;
           flex-flow: row wrap;
-          justify-content: flex-start;
+          justify-content: center;
           &__examples {
             margin-bottom: 1rem;
             margin-right: 1rem;
             padding: 0;
+            max-width: 70%;
+            height: auto;
           }
         }
       }
