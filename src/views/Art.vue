@@ -11,7 +11,7 @@ TO DO:
       <p class="Main__content__pgdesc">I enjoy creating characters and learning new techniques and poses. My specialty lies in animals, but I am working on expanding that to human and human-like creatures. I predominantly draw in a digital medium using an iPad and Apple Pencil, though I originally started digital art with an Intuos 5 pen tablet. Every now and then, I go back to traditional paper and pencil or paint.</p>
       <div class="Main__content__imgs">
         <!-- v-for loop that loops through the array imageSrc to pull image sources -->
-        <img class="Main__content__imgs__examples rounded" v-for="index in imageSrc" v-bind:src="index" alt="Examples of art I've done" />
+        <img class="Main__content__imgs__examples rounded" v-for="index in imageInfo" v-bind="{ src: index.src, alt: index.alt }" />
       </div>
     </article>
     <!-- Sidebar - commission info and status -->
@@ -63,10 +63,33 @@ TO DO:
         charaddonmax: 20,
         // Prices showing
         priceShowing: true,
-        // Array of images
-        imageSrc: ['../assets/Emote-2v2.png', '../assets/Profile_Pic.png', '../assets/Mascot_Banner.png', '../assets/HedwigBun.PNG', '../assets/Melon Pup v2_20200708.jpg', '../assets/zeika__flat_color_by_kyruhikari.jpg'],
-        // Array of image alt text
-        // imageAlt: ['A waving light blue dragon emote', 'A light blue dragon on a scaled background profile picture', 'A flying light blue dragon on a scaled background banner', 'A sketch of a bunny named Hedwig curled into a ball', 'A drawing of a watermelon-themed cartoon dog', 'A drawing of a black fox character']
+        // Array of images and alt tags
+        imageInfo: [
+          {
+            src: require('../assets/Emote-2v2.png'),
+            alt: 'A waving light blue dragon emote'
+          },
+          {
+            src: require('../assets/Profile_Pic.png'),
+            alt: 'A light blue dragon on a scaled background profile picture'
+          },
+          {
+            src: require('../assets/Mascot_Banner.png'),
+            alt: 'A flying light blue dragon on a scaled background banner'
+          },
+          {
+            src: require('../assets/HedwigBun.PNG'),
+            alt: 'A sketch of a bunny named Hedwig curled into a ball'
+          },
+          {
+            src: require('../assets/MelonPupv2.png'),
+            alt: 'A drawing of a watermelon-themed cartoon dog'
+          },
+          {
+            src: require('../assets/zeika__flat_color_by_kyruhikari.png'),
+            alt: 'A drawing of a black fox character'
+          }
+        ]
       }
     },
     methods: {
